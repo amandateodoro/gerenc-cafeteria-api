@@ -42,7 +42,7 @@ namespace CafeManiaApi.Controllers
 
                 if (colaborador == null)
                 {
-                    return NotFound($"Servidor #{id} não encontrado");
+                    return NotFound($"Colaborador #{id} não encontrado");
                 }
 
                 return Ok(colaborador);
@@ -108,3 +108,23 @@ namespace CafeManiaApi.Controllers
 
     }
 }
+
+//try
+//{
+//    var listaServidores = await _context.Servidores
+//        .Include(e => e.Campus)
+//        .Select(e => new {
+//            e.Id,
+//            e.CPF,
+//            e.Nome,
+//            e.Siape,
+//            Campus = new { e.Campus.Id, e.Campus.Nome }
+//        })
+//        .ToListAsync();
+
+//    return Ok(listaServidores);
+//}
+//catch (Exception e)
+//{
+//    return Problem(e.Message);
+//}

@@ -32,5 +32,7 @@ namespace CafeManiaApi.Models
         [Column("senha_colaborador")]
         public string? SenhaColaborador { get; set; }
 
+        public ICollection<Venda>? Vendas { get; set; }
+
     }
 }
