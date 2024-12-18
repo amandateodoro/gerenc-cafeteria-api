@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiGestaoFacil.Models;
+namespace CafeManiaApi.Models;
 
 [Table("campus"), PrimaryKey(nameof(Id))]
 public class Campus

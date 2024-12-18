@@ -1,10 +1,10 @@
-﻿using ApiGestaoFacil.DataContexts;
-using ApiGestaoFacil.Dtos;
-using ApiGestaoFacil.Models;
+﻿using CafeManiaApi.DataContexts;
+using CafeManiaApi.Dtos;
+using CafeManiaApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiGestaoFacil.Controllers
+namespace CafeManiaApi.Controllers
 {
     [ApiController]
     [Route("servidores")]

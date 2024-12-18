@@ -1,7 +1,7 @@
-﻿using ApiGestaoFacil.Models;
+﻿using CafeManiaApi.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiGestaoFacil.DataContexts
+namespace CafeManiaApi.DataContexts
 {
     public class AppDbContext : DbContext
     {
@@ -10,6 +10,9 @@ namespace ApiGestaoFacil.DataContexts
 
         public DbSet<Servidor> Servidores { get; set; }
         public DbSet<Campus> Campus { get; set; }
+        public DbSet<Colaborador> Colaboradores { get; set; }
+
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

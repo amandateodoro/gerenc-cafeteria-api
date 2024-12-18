@@ -1,35 +1,86 @@
-CREATE DATABASE gestao_facil_bd;
-USE gestao_facil_bd;
+CREATE DATABASE cafe_mania_db;
+USE cafe_mania_db;
 
-CREATE TABLE campus (
-	id_cam INT NOT NULL AUTO_INCREMENT,
-    nome_cam VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id_cam)
+CREATE TABLE Colaborador (
+id_colaborador INT NOT NULL AUTO_INCREMENT,	
+nome_colaborador VARCHAR(255) NOT NULL,
+contato_colaborador VARCHAR(255) NOT NULL,
+cargo_colaborador VARCHAR(255) NOT NULL,
+permissoes_colaborador BOOLEAN NOT NULL,
+usuario_colaborador VARCHAR(255) NOT NULL,
+senha_colaborador VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_colaborador)
 );
 
-DROP TABLE IF EXISTS servidor;
-CREATE TABLE servidor (
-	id_ser INT NOT NULL AUTO_INCREMENT,
-    nome_ser VARCHAR(255) NOT NULL,
-    cpf_ser VARCHAR(14) NOT NULL,
-    siape_ser INT NOT NULL,
-    id_cam_fk INT NOT NULL,
-    PRIMARY KEY(id_ser),
-    FOREIGN KEY(id_cam_fk) REFERENCES campus (id_cam)
+CREATE TABLE Estoque (
+id_estoque INT NOT NULL AUTO_INCREMENT,	
+quantidade_prod INT NOT NULL,
+data_validade DATE NOT NULL,
+tipo_movimento VARCHAR(255) NOT NULL,
+fk_id_produto INT NOT NULL,
+PRIMARY KEY (id_estoque),
+FOREIGN KEY (fk_id_produto) REFERENCES Produto(id_produto)
 );
 
-INSERT INTO campus VALUES 
-	(null, "IFRO Ji-Paraná"),
-    (null, "IFRO Cacoal"),
-    (null, "IFRO Vilhena");
+CREATE TABLE Fornecedor (
+id_fornecedor INT NOT NULL AUTO_INCREMENT,	
+nome_fornecedor VARCHAR(255) NOT NULL,
+contato_fornecedor VARCHAR(255) NOT NULL,
+endereco_fornecedor VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_fornecedor)
+);
+
+CREATE TABLE Pagamento (
+id_pagamento INT NOT NULL AUTO_INCREMENT,
+forma_pagamento VARCHAR(20) NOT NULL,
+valor_pagamento DOUBLE NOT NULL,
+fk_id_venda INT NOT NULL,
+PRIMARY KEY (id_pagamento),
+FOREIGN KEY (fk_id_venda) REFERENCES Venda(id_venda)
+);
+
+CREATE TABLE Produto (
+id_produto INT NOT NULL AUTO_INCREMENT,	
+nome_produto VARCHAR(255) NOT NULL,
+desc_produto VARCHAR(255) NOT NULL,
+valor_un_produto DOUBLE NOT NULL,
+quant_estoque INT NOT NULL,
+data_validade DATE NOT NULL,
+fk_id_fornecedor INT NOT NULL,
+PRIMARY KEY (id_produto),
+FOREIGN KEY (fk_id_fornecedor) REFERENCES Fornecedor(id_fornecedor)
+);
+
+CREATE TABLE Relatorios (
+id_relatorio INT NOT NULL AUTO_INCREMENT,	
+tipo_relatorio VARCHAR(255) NOT NULL,
+data_relatorio DATE NOT NULL,
+conteudo_relatorio VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_relatorio)
+);
+
+CREATE TABLE Venda (
+id_venda INT NOT NULL AUTO_INCREMENT,
+data_venda DATE NOT NULL,
+hora_venda TIME NOT NULL,
+quantidade_produto INT NOT NULL,
+valor_total DOUBLE NOT NULL,
+fk_id_colaborador INT NOT NULL,
+fk_id_produto INT NOT NULL,
+PRIMARY KEY (id_venda),
+FOREIGN KEY (fk_id_colaborador) REFERENCES Colaborador(id_colaborador),
+FOREIGN KEY (fk_id_produto) REFERENCES Produto(id_produto)
+);
+
+##INSERT INTO Colaborador VALUES ();
+##INSERT INTO Estoque VALUES ();
+##INSERT INTO Fornecedor VALUES ();
+##INSERT INTO Pagamento VALUES ();
+##INSERT INTO Produto VALUES ();
+##INSERT INTO Relarios VALUES ();
+##INSERT INTO Venda VALUES ();
     
-INSERT INTO servidor VALUES 
-	(null, "João Teixeira", "123.123.123-33", 4467721, 1),
-    (null, "Reinaldo Lima", "546.342.453-23", 4467722, 2),
-    (null, "Emi de Oliveira", "234.234.652.42", 3245674, 3),
-    (null, "Jefferson Antonio", "321.443.721-00", 3245675, 1);
-    
-SELECT * FROM servidor, campus WHERE id_cam_fk = id_cam;
-SELECT * FROM servidor;
-SELECT * FROM campus;
+##SELECT * FROM servidor, campus WHERE id_cam_fk = id_cam;
+##SELECT * FROM Colaborador;
+##SELECT * FROM Estoque;
 

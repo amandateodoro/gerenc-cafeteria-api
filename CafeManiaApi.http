@@ -1,0 +1,6 @@
+@CafeManiaApi_HostAddress = http://localhost:5213
+
+GET {{CafeManiaApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

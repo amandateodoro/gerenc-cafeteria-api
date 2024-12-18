@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ApiGestaoFacil.Dtos
+namespace CafeManiaApi.Dtos
 {
     public class ServidorDto
     {

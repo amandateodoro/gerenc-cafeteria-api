@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiGestaoFacil.Models;
+namespace CafeManiaApi.Models;
 
 [Table("servidor")]
 public class Servidor

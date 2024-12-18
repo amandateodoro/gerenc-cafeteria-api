@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using ApiGestaoFacil.DataContexts;
+using CafeManiaApi.DataContexts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

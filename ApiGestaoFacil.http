@@ -1,6 +1,0 @@
-@ApiGestaoFacil_HostAddress = http://localhost:5213
-
-GET {{ApiGestaoFacil_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
