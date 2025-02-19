@@ -1,5 +1,6 @@
 CREATE DATABASE cafe_mania_db;
 USE cafe_mania_db;
+DROP DATABASE cafe_mania_db;
 
 CREATE TABLE Colaborador (
 id_colaborador INT NOT NULL AUTO_INCREMENT,	
