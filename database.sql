@@ -43,14 +43,6 @@ PRIMARY KEY (id_produto),
 FOREIGN KEY (fk_id_fornecedor) REFERENCES Fornecedor(id_fornecedor)
 );
 
-CREATE TABLE Relatorios (
-id_relatorio INT NOT NULL AUTO_INCREMENT,	
-tipo_relatorio VARCHAR(255) NOT NULL,
-data_relatorio DATE NOT NULL,
-conteudo_relatorio VARCHAR(255) NOT NULL,
-PRIMARY KEY (id_relatorio)
-);
-
 CREATE TABLE Venda (
 id_venda INT NOT NULL AUTO_INCREMENT,
 data_venda DATE NOT NULL,
@@ -65,6 +57,20 @@ FOREIGN KEY (fk_id_colaborador) REFERENCES Colaborador(id_colaborador),
 FOREIGN KEY (fk_id_produto) REFERENCES Produto(id_produto)
 );
 
+CREATE TABLE Relatorio_venda (
+id_relatorioVenda INT NOT NULL AUTO_INCREMENT,	
+data_relatorioVenda DATE NOT NULL,
+dados_relatorioVenda VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_relatorioVenda)
+);
+
+CREATE TABLE Relatorio_estoque (
+id_relatorioEstoque INT NOT NULL AUTO_INCREMENT,	
+data_relatorioEstoque DATE NOT NULL,
+dados_relatorioEstoque VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_relatorioEstoque)
+);
+
 ##INSERT INTO Colaborador VALUES ();
 ##INSERT INTO Estoque VALUES ();
 ##INSERT INTO Fornecedor VALUES ();
@@ -77,5 +83,5 @@ FOREIGN KEY (fk_id_produto) REFERENCES Produto(id_produto)
 ##SELECT * FROM Colaborador;
 ##SELECT * FROM Estoque;\
 
-##DROP TABLE Pagamento;
+DROP TABLE Relatorios;
 

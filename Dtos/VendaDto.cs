@@ -5,13 +5,13 @@ namespace CafeManiaApi.Dtos
     public class VendaDto
     {
         [Required]
-        public DateOnly DataVenda { get; set; }
-
-        [Required]
-        public TimeOnly HoraVenda { get; set; }
+        public DateTime DataHoraVenda { get; set; }
 
         [Required]
         public int QuantidadeProduto { get; set; }
+
+        [Required]
+        public string FormaPagamento { get; set; }
 
         [Required]
         public double ValorTotal { get; set; }

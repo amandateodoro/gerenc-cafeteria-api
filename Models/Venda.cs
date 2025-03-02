@@ -14,14 +14,14 @@ namespace CafeManiaApi.Models
         [Column("id_venda")]
         public int Id { get; set; }
 
-        [Column("data_venda")]
-        public DateOnly? Data { get; set; }
-
-        [Column("hora_venda")]
-        public TimeOnly? Hora { get; set; }
+        [Column("data_hora_venda")]
+        public DateTime? DataHora { get; set; }
 
         [Column("quantidade_produto")]
         public int? QuantidadeProd { get; set; }
+
+        [Column("forma_pagamento")]
+        public string? FormaPagamento { get; set; }
 
         [Column("valor_total")]
         public double? ValorTotal { get; set; }

@@ -31,6 +31,7 @@ namespace CafeManiaApi.Controllers
                         e.Data,
                         e.Hora,
                         e.QuantidadeProd,
+                        e.FormaPagamento,
                         e.ValorTotal,
                         Produto = new { e.Produto.Id, e.Produto.Nome, e.Produto.Descicao, e.Produto.ValorUn, e.Produto.QuantidadeEst, e.Produto.DataValidade },
                         Colaborador = new { e.Colaborador.Id, e.Colaborador.Nome, e.Colaborador.Contato, e.Colaborador.Cargo, e.Colaborador.Permissoes, e.Colaborador.UsuarioColaborador, e.Colaborador.SenhaColaborador }
@@ -66,36 +67,40 @@ namespace CafeManiaApi.Controllers
             }
         }
 
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> Put(int id, [FromBody] VendaDto item)
-        //{
-        //    try
-        //    {
-        //        var venda = await _context.Vendas.FindAsync(id);
+        // "PUT/vendas/{id}" ATUALIZA UMA VENDA EXISTENTE (NÃO É NECESSÁRIO NO CONTEXTO ATUAL)
 
-        //        if (venda is null)
-        //        {
-        //            return NotFound();
-        //        }
+        /*[HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] VendaDto item)
+        {
+            try
+            {
+                var venda = await _context.Vendas.FindAsync(id);
 
-        //        venda.Data = item.DataVenda;
-        //        venda.Hora = item.HoraVenda;
-        //        venda.QuantidadeProd = item.QuantidadeProduto;
-        //        venda.ValorTotal = item.ValorTotal;
+                if (venda is null)
+                {
+                    return NotFound();
+                }
+
+                venda.Data = item.DataVenda;
+                venda.Hora = item.HoraVenda;
+                venda.QuantidadeProd = item.QuantidadeProduto;
+                venda.ValorTotal = item.ValorTotal;
 
 
-        //        _context.Colaboradores.Update(venda);
-        //        await _context.SaveChangesAsync();
+                _context.Colaboradores.Update(venda);
+                await _context.SaveChangesAsync();
 
-        //        return Ok(venda);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return Problem(e.Message);
-        //    }
-        //}
+                return Ok(venda);
+            }
+            catch (Exception e)
+            {
+                return Problem(e.Message);
+            }
+        }*/
 
-        [HttpDelete("{id}")]
+
+        // "DELETE/vendas/{id}" DELETA UMA VENDA EXISTENTE (NÃO É NECESSÁRIO NO CONTEXTO ATUAL)
+        /*[HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             try
@@ -116,7 +121,7 @@ namespace CafeManiaApi.Controllers
             {
                 return Problem(e.Message);
             }
-        }
+        }*/
 
     }
 }
