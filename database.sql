@@ -31,15 +31,6 @@ endereco_fornecedor VARCHAR(255) NOT NULL,
 PRIMARY KEY (id_fornecedor)
 );
 
-CREATE TABLE Pagamento (
-id_pagamento INT NOT NULL AUTO_INCREMENT,
-forma_pagamento VARCHAR(20) NOT NULL,
-valor_pagamento DOUBLE NOT NULL,
-fk_id_venda INT NOT NULL,
-PRIMARY KEY (id_pagamento),
-FOREIGN KEY (fk_id_venda) REFERENCES Venda(id_venda)
-);
-
 CREATE TABLE Produto (
 id_produto INT NOT NULL AUTO_INCREMENT,	
 nome_produto VARCHAR(255) NOT NULL,
@@ -65,6 +56,7 @@ id_venda INT NOT NULL AUTO_INCREMENT,
 data_venda DATE NOT NULL,
 hora_venda TIME NOT NULL,
 quantidade_produto INT NOT NULL,
+forma_pagamento VARCHAR(50) NOT NULL,
 valor_total DOUBLE NOT NULL,
 fk_id_colaborador INT NOT NULL,
 fk_id_produto INT NOT NULL,
@@ -83,5 +75,7 @@ FOREIGN KEY (fk_id_produto) REFERENCES Produto(id_produto)
     
 ##SELECT * FROM servidor, campus WHERE id_cam_fk = id_cam;
 ##SELECT * FROM Colaborador;
-##SELECT * FROM Estoque;
+##SELECT * FROM Estoque;\
+
+##DROP TABLE Pagamento;
 
