@@ -7,12 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CafeManiaApi.Models
 {
-    [Table("Colaborador")]
+    [Table("Produto")]
 
     public class Produto
     {
         [Column("id_produto")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Column("nome_produto")]
         public string? Nome { get; set; }
@@ -21,16 +21,16 @@ namespace CafeManiaApi.Models
         public string? Descicao { get; set; }
 
         [Column("valor_un_produto")]
-        public string? ValorUn { get; set; }
+        public double? ValorUn { get; set; }
 
         [Column("quant_estoque")]
-        public bool? QuantidadeEst { get; set; }
+        public int? QuantidadeEst { get; set; }
 
         [Column("data_validade")]
-        public string? DataValidade { get; set; }
+        public DateOnly? DataValidade { get; set; }
 
         [Column("fk_id_fornecedor")]
-        public string? FornecedorId { get; set; }
+        public int? FornecedorId { get; set; }
 
         public virtual Fornecedor Fornecedor { get; set; }
 

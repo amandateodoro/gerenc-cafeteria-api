@@ -11,9 +11,9 @@ namespace CafeManiaApi.Dtos
         public TimeOnly HoraVenda { get; set; }
 
         [Required]
-        public string QuantidadeProduto { get; set; }
+        public int QuantidadeProduto { get; set; }
 
         [Required]
-        public string ValorTotal { get; set; }
+        public double ValorTotal { get; set; }
     }
 }

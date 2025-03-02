@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CafeManiaApi.Models
 {
-    [Table("Colaborador")]
+    [Table("Fornecedor")]
 
     public class Fornecedor
     {

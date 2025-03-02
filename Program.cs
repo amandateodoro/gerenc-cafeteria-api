@@ -4,11 +4,14 @@ using CafeManiaApi.DataContexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddJsonOptions(x =>
    { 
        x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; 
@@ -23,14 +26,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration("Jwt:Issuer"),
-        ValidAudience = builder.Configuration("Jwt: Audience"),
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("chaves"))
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty))
     };
 });
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 
 // Busca string de conex�o e adiciona a classe AppDbContext Service do EF
 var connectionString = builder.Configuration.GetConnectionString("default");

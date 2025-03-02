@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CafeManiaApi.Models
 {
-    [Table("Colaborador")]
+    [Table("Pagamento")]
 
     public class Pagamento
     {
@@ -18,10 +18,10 @@ namespace CafeManiaApi.Models
         public string? FormaPagamento { get; set; }
 
         [Column("valor_pagamento")]
-        public string? Valor { get; set; }
+        public double? ValorPagamento { get; set; }
 
         [Column("fk_id_venda")]
-        public string? VendaId { get; set; }
+        public int? VendaId { get; set; }
 
         public virtual Venda Venda { get; set; }
     }

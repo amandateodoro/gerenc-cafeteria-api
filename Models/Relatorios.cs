@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CafeManiaApi.Models
 {
-    [Table("Colaborador")]
+    [Table("Relatorios")]
 
     public class Relatorios
     {
@@ -17,7 +17,7 @@ namespace CafeManiaApi.Models
         public string? Tipo { get; set; }
 
         [Column("data_relatorio")]
-        public string? Data { get; set; }
+        public DateOnly? Data { get; set; }
 
         [Column("conteudo_relatorio")]
         public string? Conteudo { get; set; }
