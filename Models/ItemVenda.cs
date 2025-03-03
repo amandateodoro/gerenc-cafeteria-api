@@ -12,10 +12,10 @@ namespace CafeManiaApi.Models
         public int Quantidade { get; set; }
 
         [Column("valor_un_produto")]
-        public decimal PrecoUnitario { get; set; }
+        public double PrecoUnitario { get; set; }
 
         [Column("subtotal_venda")]
-        public decimal Subtotal => Quantidade * PrecoUnitario;
+        public double Subtotal => Quantidade * PrecoUnitario;
 
         [Column("fk_id_venda")]
         public int VendaId { get; set; }

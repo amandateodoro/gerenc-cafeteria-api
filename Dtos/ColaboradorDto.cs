@@ -16,7 +16,7 @@ namespace CafeManiaApi.Dtos
         public string Cargo { get; set; }
 
         [Required]
-        public bool Permissoes { get; set; }
+        public string Permissoes { get; set; }
 
         [Required]
         public string UsuarioColaborador { get; set; }

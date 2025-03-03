@@ -24,7 +24,7 @@ namespace CafeManiaApi.Models
         public string? Cargo { get; set; }
 
         [Column("permissoes_colaborador")]
-        public bool? Permissoes { get; set; }
+        public string? Permissoes { get; set; }
 
         [Column("usuario_colaborador")]
         public string? UsuarioColaborador {  get; set; }

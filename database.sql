@@ -7,7 +7,7 @@ id_colaborador INT NOT NULL AUTO_INCREMENT,
 nome_colaborador VARCHAR(255) NOT NULL,
 contato_colaborador VARCHAR(255) NOT NULL,
 cargo_colaborador VARCHAR(255) NOT NULL,
-permissoes_colaborador BOOLEAN NOT NULL,
+permissoes_colaborador VARCHAR(20) NOT NULL,
 usuario_colaborador VARCHAR(255) NOT NULL,
 senha_colaborador VARCHAR(255) NOT NULL,
 PRIMARY KEY (id_colaborador)
@@ -94,6 +94,6 @@ PRIMARY KEY (id_relatorioVenda)
 ##SELECT * FROM Colaborador;
 ##SELECT * FROM Estoque;
 
-## DROP TABLE Venda;
+ DROP TABLE Colaborador;
  
 

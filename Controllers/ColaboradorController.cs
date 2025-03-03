@@ -23,7 +23,17 @@ namespace CafeManiaApi.Controllers
         {
             try
             {
-                var listaColaboradores = await _context.Colaboradores.ToListAsync();
+                var listaColaboradores = await _context.Colaboradores
+                .Select(c => new
+                {
+                    c.Id,
+                    c.Nome,
+                    c.Contato,
+                    c.Cargo,
+                    c.Permissoes,
+                    c.UsuarioColaborador
+                })
+                .ToListAsync();
 
                 return Ok(listaColaboradores);
             }
@@ -38,7 +48,18 @@ namespace CafeManiaApi.Controllers
         {
             try
             {
-                var colaborador = await _context.Colaboradores.Where(s => s.Id == id).FirstOrDefaultAsync();
+                var colaborador = await _context.Colaboradores
+                .Where(c => c.Id == id)
+                .Select(c => new
+                {
+                    c.Id,
+                    c.Nome,
+                    c.Contato,
+                    c.Cargo,
+                    c.Permissoes,
+                    c.UsuarioColaborador
+                })
+                .FirstOrDefaultAsync();
 
                 if (colaborador == null)
                 {
@@ -72,7 +93,7 @@ namespace CafeManiaApi.Controllers
                 await _context.Colaboradores.AddAsync(colaboradores);
                 await _context.SaveChangesAsync();
 
-                return Created("", colaboradores);
+                return CreatedAtAction(nameof(GetById), new { id = colaboradores.Id }, colaboradores);
             }
             catch (Exception e)
             {
@@ -89,7 +110,7 @@ namespace CafeManiaApi.Controllers
 
                 if (colaborador is null)
                 {
-                    return NotFound();
+                    return NotFound($"Colaborador #{id} não encontrado");
                 }
 
                 colaborador.Nome = item.Nome;
@@ -119,7 +140,7 @@ namespace CafeManiaApi.Controllers
 
                 if (colaborador is null)
                 {
-                    return NotFound();
+                    return NotFound($"Colaborador #{id} não encontrado");
                 }
 
                 _context.Colaboradores.Remove(colaborador);
