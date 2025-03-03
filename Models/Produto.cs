@@ -12,27 +12,31 @@ namespace CafeManiaApi.Models
     public class Produto
     {
         [Column("id_produto")]
-        public int? Id { get; set; }
+        public int Id { get; set; }
 
         [Column("nome_produto")]
         public string? Nome { get; set; }
 
         [Column("desc_produto")]
-        public string? Descicao { get; set; }
+        public string? Descricao { get; set; }
 
         [Column("valor_un_produto")]
         public double? ValorUn { get; set; }
 
         [Column("quant_estoque")]
-        public int? QuantidadeEst { get; set; }
+        public int? QuantidadeEstoque { get; set; }
 
         [Column("data_validade")]
         public DateOnly? DataValidade { get; set; }
 
-        [Column("fk_id_fornecedor")]
-        public int? FornecedorId { get; set; }
+        [Column("fk_id_estoque")]
+        public int EstoqueId { get; set; }
 
-        public virtual Fornecedor Fornecedor { get; set; }
+        public Estoque Estoque { get; set; }
+
+        public ICollection<ProdutoFornecedor>? ProdutoFornecedores { get; set; }
+
+        public ICollection<ItemVenda>? ItensVenda { get; set; }
 
     }
 }

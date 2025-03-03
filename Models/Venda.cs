@@ -17,9 +17,6 @@ namespace CafeManiaApi.Models
         [Column("data_hora_venda")]
         public DateTime? DataHora { get; set; }
 
-        [Column("quantidade_produto")]
-        public int? QuantidadeProd { get; set; }
-
         [Column("forma_pagamento")]
         public string? FormaPagamento { get; set; }
 
@@ -29,12 +26,14 @@ namespace CafeManiaApi.Models
         [Column("fk_id_colaborador")]
         public int? ColaboradorId { get; set; }
 
-        [Column("fk_id_produto")]
-        public int? ProdutoId { get; set; }
+        [Column("fk_id_relatorioVenda")]
+        public int? RelatorioVendaId { get; set; }
 
-        public virtual Colaborador Colaborador { get; set; }
+        public virtual Colaborador Colaboradores { get; set; }
 
-        public virtual Produto Produto { get; set; }
+        public virtual RelatorioVenda RelatorioVendas { get; set; }
+
+        public ICollection<ItemVenda>? ItensVenda { get; set; }
 
     }
 }

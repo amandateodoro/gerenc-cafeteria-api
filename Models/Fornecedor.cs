@@ -16,11 +16,16 @@ namespace CafeManiaApi.Models
         [Column("nome_fornecedor")]
         public string? Nome { get; set; }
 
-        [Column("contato_fornecedor")]
+        [Column("cnpj_fornecedor")]
         public string? Contato { get; set; }
 
         [Column("endereco_fornecedor")]
         public string? Endereco { get; set; }
+
+        [Column("telefone_fornecedor")]
+        public string? Telefone { get; set; }
+
+        public ICollection<ProdutoFornecedor>? ProdutoFornecedores { get; set; }
 
     }
 }

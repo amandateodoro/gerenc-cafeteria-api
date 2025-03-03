@@ -45,30 +45,24 @@ FOREIGN KEY (fk_id_fornecedor) REFERENCES Fornecedor(id_fornecedor)
 
 CREATE TABLE Venda (
 id_venda INT NOT NULL AUTO_INCREMENT,
-data_venda DATE NOT NULL,
-hora_venda TIME NOT NULL,
+data_hora_venda DATETIME NOT NULL,
 quantidade_produto INT NOT NULL,
 forma_pagamento VARCHAR(50) NOT NULL,
 valor_total DOUBLE NOT NULL,
 fk_id_colaborador INT NOT NULL,
 fk_id_produto INT NOT NULL,
+fk_id_relatorioVenda INT NOT NULL,
 PRIMARY KEY (id_venda),
 FOREIGN KEY (fk_id_colaborador) REFERENCES Colaborador(id_colaborador),
+FOREIGN KEY (fk_id_relatorioVenda) REFERENCES Relatorio_venda(id_relatorioVenda),
 FOREIGN KEY (fk_id_produto) REFERENCES Produto(id_produto)
 );
 
 CREATE TABLE Relatorio_venda (
 id_relatorioVenda INT NOT NULL AUTO_INCREMENT,	
-data_relatorioVenda DATE NOT NULL,
+data_relatorioVenda DATETIME NOT NULL,
 dados_relatorioVenda VARCHAR(255) NOT NULL,
 PRIMARY KEY (id_relatorioVenda)
-);
-
-CREATE TABLE Relatorio_estoque (
-id_relatorioEstoque INT NOT NULL AUTO_INCREMENT,	
-data_relatorioEstoque DATE NOT NULL,
-dados_relatorioEstoque VARCHAR(255) NOT NULL,
-PRIMARY KEY (id_relatorioEstoque)
 );
 
 ##INSERT INTO Colaborador VALUES ();
@@ -76,12 +70,13 @@ PRIMARY KEY (id_relatorioEstoque)
 ##INSERT INTO Fornecedor VALUES ();
 ##INSERT INTO Pagamento VALUES ();
 ##INSERT INTO Produto VALUES ();
-##INSERT INTO Relarios VALUES ();
+##INSERT INTO Relatorio_venda VALUES ();
 ##INSERT INTO Venda VALUES ();
     
 ##SELECT * FROM servidor, campus WHERE id_cam_fk = id_cam;
 ##SELECT * FROM Colaborador;
-##SELECT * FROM Estoque;\
+##SELECT * FROM Estoque;
 
-DROP TABLE Relatorios;
+## DROP TABLE Venda;
+ 
 

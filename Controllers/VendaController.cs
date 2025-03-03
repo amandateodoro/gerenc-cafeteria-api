@@ -24,17 +24,16 @@ namespace CafeManiaApi.Controllers
             try
             {
                 var listaVendas = await _context.Vendas
-                    .Include(e => e.Produto)
+                    .Include(e => e.Produtos)
                     .Select(e => new
                     {
                         e.Id,
-                        e.Data,
-                        e.Hora,
+                        e.DataHora,
                         e.QuantidadeProd,
                         e.FormaPagamento,
                         e.ValorTotal,
-                        Produto = new { e.Produto.Id, e.Produto.Nome, e.Produto.Descicao, e.Produto.ValorUn, e.Produto.QuantidadeEst, e.Produto.DataValidade },
-                        Colaborador = new { e.Colaborador.Id, e.Colaborador.Nome, e.Colaborador.Contato, e.Colaborador.Cargo, e.Colaborador.Permissoes, e.Colaborador.UsuarioColaborador, e.Colaborador.SenhaColaborador }
+                        Produtos = new { e.Produtos.Id, e.Produtos.Nome, e.Produtos.Descicao, e.Produtos.ValorUn, e.Produtos.QuantidadeEst, e.Produtos.DataValidade },
+                        Colaboradores = new { e.Colaboradores.Id, e.Colaboradores.Nome, e.Colaboradores.Contato, e.Colaboradores.Cargo, e.Colaboradores.Permissoes, e.Colaboradores.UsuarioColaborador, e.Colaboradores.SenhaColaborador }
 
                     })
                     .ToListAsync();

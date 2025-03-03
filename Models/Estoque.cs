@@ -22,10 +22,7 @@ namespace CafeManiaApi.Models
         [Column("tipo_movimento")]
         public string? EntradaSaidaProd { get; set; }
 
-        [Column("fk_id_produto")]
-        public int? ProdutoId { get; set; }
-
-        public virtual Produto Produto { get; set; }
+        public ICollection<Produto>? Produtos { get; set; }
 
     }
 }

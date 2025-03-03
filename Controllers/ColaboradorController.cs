@@ -53,6 +53,33 @@ namespace CafeManiaApi.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] ColaboradorDto item)
+        {
+            try
+            {
+
+                var colaboradores = new Colaborador()
+                {
+                    Nome = item.Nome,
+                    Contato = item.Contato,
+                    Cargo = item.Cargo,
+                    Permissoes = item.Permissoes,
+                    UsuarioColaborador = item.UsuarioColaborador,
+                    SenhaColaborador = item.SenhaColaborador
+                };
+
+                await _context.Colaboradores.AddAsync(colaboradores);
+                await _context.SaveChangesAsync();
+
+                return Created("", colaboradores);
+            }
+            catch (Exception e)
+            {
+                return Problem();
+            }
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] ColaboradorDto item)
         {
@@ -108,23 +135,3 @@ namespace CafeManiaApi.Controllers
 
     }
 }
-
-//try
-//{
-//    var listaServidores = await _context.Servidores
-//        .Include(e => e.Campus)
-//        .Select(e => new {
-//            e.Id,
-//            e.CPF,
-//            e.Nome,
-//            e.Siape,
-//            Campus = new { e.Campus.Id, e.Campus.Nome }
-//        })
-//        .ToListAsync();
-
-//    return Ok(listaServidores);
-//}
-//catch (Exception e)
-//{
-//    return Problem(e.Message);
-//}

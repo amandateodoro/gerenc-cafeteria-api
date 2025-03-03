@@ -8,7 +8,7 @@ namespace CafeManiaApi.Models
 {
     [Table("Relatorio_venda")]
 
-    public class Relatorio_vendas
+    public class RelatorioVenda
     {
         [Column("id_relatorioVenda")]
         public int Id { get; set; }
@@ -18,5 +18,7 @@ namespace CafeManiaApi.Models
 
         [Column("dados_relatorioVenda")]
         public string? Dados { get; set; }
+
+        public ICollection<Venda>? Vendas { get; set; }
     }
 }
