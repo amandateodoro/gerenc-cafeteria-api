@@ -15,8 +15,5 @@ namespace CafeManiaApi.Dtos
 
         [Required]
         public int QuantidadeEstoque { get; set; }
-
-        [Required]
-        public DateOnly DataValidade { get; set; }
     }
 }

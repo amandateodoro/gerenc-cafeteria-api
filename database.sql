@@ -45,7 +45,6 @@ nome_produto VARCHAR(255) NOT NULL,
 desc_produto VARCHAR(255) NOT NULL,
 valor_un_produto DECIMAL(10,2) NOT NULL,
 quant_estoque INT NOT NULL,
-data_validade DATE NOT NULL,
 fk_id_estoque INT NOT NULL,
 PRIMARY KEY (id_produto),
 FOREIGN KEY (fk_id_estoque) REFERENCES Estoque(id_estoque)
@@ -82,18 +81,33 @@ dados_relatorioVenda VARCHAR(255) NOT NULL,
 PRIMARY KEY (id_relatorioVenda)
 );
 
-##INSERT INTO Colaborador VALUES ();
-##INSERT INTO Estoque VALUES ();
-##INSERT INTO Fornecedor VALUES ();
-##INSERT INTO Pagamento VALUES ();
-##INSERT INTO Produto VALUES ();
-##INSERT INTO Relatorio_venda VALUES ();
-##INSERT INTO Venda VALUES ();
-    
-##SELECT * FROM servidor, campus WHERE id_cam_fk = id_cam;
-##SELECT * FROM Colaborador;
-##SELECT * FROM Estoque;
+INSERT INTO Produto (nome_produto, desc_produto, valor_un_produto, quant_estoque, fk_id_estoque)
+VALUES 
+    ('Café Expresso', 'Café forte e encorpado', 5.50, 100, 1),
+    ('Cappuccino', 'Café com leite e espuma', 7.00, 50, 2),
+    ('Chá Verde', 'Chá natural e refrescante', 4.00, 75, 1),
+    ('Pão de Queijo', 'Delicioso pão de queijo mineiro', 3.50, 200, 3),
+    ('Bolo de Chocolate', 'Fatia de bolo com cobertura', 8.00, 30, 2),
+    ('Croissant', 'Massa folhada amanteigada', 6.50, 40, 3),
+    ('Suco de Laranja', 'Suco natural sem açúcar', 5.00, 60, 1),
+    ('Torrada com Geleia', 'Pão torrado com geleia artesanal', 4.50, 25, 2),
+    ('Cookie de Chocolate', 'Biscoito com gotas de chocolate', 3.00, 90, 3),
+    ('Muffin de Blueberry', 'Bolinho macio com mirtilos', 6.00, 35, 2);
 
- DROP TABLE Colaborador;
+INSERT INTO Estoque (quantidade_prod, data_validade, tipo_movimento)
+VALUES 
+    (100, '2025-06-30', 'Entrada'),
+    (200, '2025-07-15', 'Saída'),
+    (50, '2025-05-20', 'Entrada'),
+    (150, '2025-06-10', 'Saída'),
+    (75, '2025-08-05', 'Entrada'),
+    (180, '2025-06-25', 'Entrada'),
+    (60, '2025-07-01', 'Saída'),
+    (130, '2025-05-30', 'Entrada'),
+    (90, '2025-06-18', 'Saída'),
+    (120, '2025-07-07', 'Entrada');
+
+SELECT * FROM Estoque;
+SELECT * FROM Produto;
  
 

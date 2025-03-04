@@ -62,8 +62,9 @@ namespace CafeManiaApi.Controllers
                 var fornecedores = new Fornecedor()
                 {
                     Nome = item.Nome,
-                    Contato = item.Contato,
-                    Endereco = item.Contato
+                    Cnpj = item.Cnpj,
+                    Endereco = item.Enredeco,
+                    Telefone = item.Telefone
                 };
 
                 await _context.Fornecedores.AddAsync(fornecedores);
@@ -90,8 +91,9 @@ namespace CafeManiaApi.Controllers
                 }
 
                 fornecedor.Nome = item.Nome;
-                fornecedor.Contato = item.Contato;
-                fornecedor.Endereco = item.Contato;
+                fornecedor.Cnpj = item.Cnpj;
+                fornecedor.Endereco = item.Enredeco;
+                fornecedor.Telefone = item.Telefone;
 
                 _context.Fornecedores.Update(fornecedor);
                 await _context.SaveChangesAsync();

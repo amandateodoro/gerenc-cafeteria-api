@@ -17,7 +17,7 @@ namespace CafeManiaApi.Models
         public string? Nome { get; set; }
 
         [Column("cnpj_fornecedor")]
-        public string? Contato { get; set; }
+        public string? Cnpj { get; set; }
 
         [Column("endereco_fornecedor")]
         public string? Endereco { get; set; }

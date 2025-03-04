@@ -26,9 +26,6 @@ namespace CafeManiaApi.Models
         [Column("quant_estoque")]
         public int? QuantidadeEstoque { get; set; }
 
-        [Column("data_validade")]
-        public DateOnly? DataValidade { get; set; }
-
         [Column("fk_id_estoque")]
         public int EstoqueId { get; set; }
 

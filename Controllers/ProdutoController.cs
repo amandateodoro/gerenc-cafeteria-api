@@ -53,6 +53,7 @@ namespace CafeManiaApi.Controllers
             }
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ProdutoDto item)
         {
@@ -64,18 +65,17 @@ namespace CafeManiaApi.Controllers
                     Nome = item.Nome,
                     Descricao = item.Descricao,
                     ValorUn = item.ValorUn,
-                    QuantidadeEstoque = item.QuantidadeEstoque,
-                    DataValidade = item.DataValidade
+                    QuantidadeEstoque = item.QuantidadeEstoque
                 };
 
                 await _context.Produtos.AddAsync(produtos);
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction(nameof(GetById), new { id = produtos.Id }, produtos);
+                return Created("", produtos);
             }
             catch (Exception e)
             {
-                return Problem(e.Message);
+                return Problem();
             }
         }
 
@@ -95,7 +95,6 @@ namespace CafeManiaApi.Controllers
                 produto.Descricao = item.Descricao;
                 produto.ValorUn = item.ValorUn;
                 produto.QuantidadeEstoque = item.QuantidadeEstoque;
-                produto.DataValidade = item.DataValidade;
 
                 _context.Produtos.Update(produto);
                 await _context.SaveChangesAsync();
