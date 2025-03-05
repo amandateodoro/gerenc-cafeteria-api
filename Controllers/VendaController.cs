@@ -108,7 +108,7 @@ namespace CafeManiaApi.Controllers
                         ProdutoId = itemDto.ProdutoId,
                         Quantidade = itemDto.Quantidade,
                         PrecoUnitario = itemDto.PrecoUnitario,
-                        Venda = venda
+                        
                     };
 
                     venda.ItensVenda.Add(itemVenda);

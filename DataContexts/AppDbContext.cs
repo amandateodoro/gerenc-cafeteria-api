@@ -47,23 +47,6 @@ namespace CafeManiaApi.DataContexts
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             /*modelBuilder.Entity<Venda>()
                 .HasOne(e => e.Colaboradores) //uma venda é feita por apenas um colaborador
                 .WithMany(e => e.Vendas) //um colaborador pode fazer varias vendas
